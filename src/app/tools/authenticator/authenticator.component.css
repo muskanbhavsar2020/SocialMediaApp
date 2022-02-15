@@ -1,0 +1,25 @@
+.auth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+}
+.auth_content{
+    width: 100%;
+    max-width: 450px;
+    padding: 24px;
+}
+button{
+    margin: 9px;
+}
+input{
+    width: 100%;
+    padding: 16px;
+    margin: 9px 0;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #2C3333;
+    box-sizing: border-box;
+
+}
