@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticatorComponent } from 'src/app/tools/authenticator/authenticator.component';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,12 +8,12 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
 
-  
+
   ngOnInit(): void {
   }
 
   constructor(private loginSheet: MatDialog) { }
   onLoginClick() {
-    const dialogRef = this.loginSheet.open(AuthenticatorComponent);
+    this.loginSheet.open(AuthenticatorComponent);
   }
 }

@@ -1,14 +1,17 @@
 <div class="nav-bar">
     <div class="nav-bar-content">
         <div class="nav-bar-left">
-           <div style="font-size: 28px;font-family: 'Monoton', cursive;" class="nav-bar-items">ConnectMe</div>
+            <div style="font-size: 28px;font-family: 'Monoton', cursive;" class="nav-bar-items">ConnectMe</div>
         </div>
-        <div class="nav-bar-right" >
-            <button *ngIf="!loggedIn()" class="nav-bar-items" mat-raised-button color="primary" (click)="onLoginClick()" >Log In</button>
-            <button *ngIf="loggedIn() && userHasProfile" class="nav-bar-items">Hello,{{userDocument.publicName}}</button>
-            <button *ngIf="loggedIn()" mat-raised-button class="nav-bar-items" color="primary" (click)="onLogoutClick()" >Log Out</button>
+        <div class="nav-bar-right">
+            <button *ngIf="!loggedIn()" class="nav-bar-items" mat-raised-button color="primary"
+                (click)="onLoginClick()">Log In</button>
+            <div *ngIf="loggedIn() && userHasProfile" class="nav-bar-items"><i>Hello, {{userDocument.publicName}}</i>
+            </div>
+            <button *ngIf="loggedIn()" mat-raised-button class="nav-bar-items" color="primary"
+                (click)="onLogoutClick()">Log Out</button>
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>             
+<router-outlet></router-outlet>
 <app-profile [show]="loggedIn() && !userHasProfile"></app-profile>

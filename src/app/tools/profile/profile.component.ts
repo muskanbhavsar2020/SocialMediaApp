@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 @Component({
@@ -8,36 +8,38 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 })
 export class ProfileComponent implements OnInit {
 
-  @Input() show :boolean;
-  firestore:FirebaseTSFirestore;
-  auth:FirebaseTSAuth;
-  constructor() { 
-    this.firestore=new FirebaseTSFirestore();
-    this.auth=new FirebaseTSAuth();
+  @Input() show: boolean;
+  firestore: FirebaseTSFirestore;
+  auth: FirebaseTSAuth;
+  constructor() {
+    this.firestore = new FirebaseTSFirestore();
+    this.auth = new FirebaseTSAuth();
   }
 
   ngOnInit(): void {
   }
   onContinueClick(
-    nameInput:HTMLInputElement,
-    descriptionInput:HTMLTextAreaElement){
-      let name=nameInput.value;
-      let description= descriptionInput.value;
-      this.firestore.create(
-        {
-          path: [ "Users", this.auth.getAuth().currentUser.uid],
-          data:{
-            publicName:name,
-            description:description
-          },
-          onComplete:(docId)=>{
-            alert("Profile Created");
-            nameInput.value="",
-            descriptionInput.value=""
-          },
-          onFail:(err)=>{
+    nameInput: HTMLInputElement,
+    descriptionInput: HTMLTextAreaElement) {
 
-          }
+    let name = nameInput.value;
+    let description = descriptionInput.value;
+
+    this.firestore.create(
+      {
+        path: ["Users", this.auth.getAuth().currentUser.uid],
+        data: {
+          publicName: name,
+          description: description
+        },
+        onComplete: (docId) => {
+          alert("Profile is Created");
+          nameInput.value = "",
+            descriptionInput.value = ""
+        },
+        onFail: (err) => {
+
+        }
       })
 
   }
