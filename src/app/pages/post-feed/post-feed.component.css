@@ -1,5 +1,12 @@
-#post-button{
+#post-button {
     position: fixed;
-    bottom: 32px;
-    right: 32px;
+    bottom: 2em;
+    right: 2em;
+}
+
+#post-feed {
+    max-width: 500px;
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
 }

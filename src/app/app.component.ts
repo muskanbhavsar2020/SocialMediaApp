@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AuthenticatorComponent } from 'src/app/tools/authenticator/authenticator.component';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { Router } from '@angular/router';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
@@ -13,64 +13,67 @@ import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFi
 })
 export class AppComponent {
   title = 'SocialMediaApp';
-  auth=new FirebaseTSAuth();
-  isLoggedIn=false;
-  firestore=new FirebaseTSFirestore();
-  userHasProfile=true;
-  userDocument:userDocument;
-  constructor(private loginSheet: MatDialog, private router:Router) {
+  auth = new FirebaseTSAuth();
+  firestore = new FirebaseTSFirestore();
+  userHasProfile = true;
+  userDocument: UserDocument;
+
+  constructor(private loginSheet: MatDialog, private router: Router) {
     this.auth.listenToSignInStateChanges(
-      user=>{
+      user => {
         this.auth.checkSignInState(
           {
-            whenSignedIn:user=>{
-            
+            whenSignedIn: user => {
+
             },
-            whenSignedOut:user=>{
-              
+            whenSignedOut: user => {
+
             },
-            whenSignedInAndEmailNotVerified:user=>{
+            whenSignedInAndEmailNotVerified: user => {
               this.router.navigate(["emailVerification"]);
             },
-            whenSignedInAndEmailVerified:user=>{
-              this.getUserProfile(); 
+            whenSignedInAndEmailVerified: user => {
+              this.getUserProfile();
             },
-            whenChanged:user=>{
+            whenChanged: user => {
 
             }
           }
         );
       }
     );
-   }
-   onLogoutClick(){
-     this.auth.signOut(); 
-   }
-   loggedIn(){
-     return this.auth.isSignedIn();
-   }
+  }
+
+  getUserProfile() {
+    this.firestore.listenToDocument({
+      name: "Getting Document",
+      path: ["Users", this.auth.getAuth().currentUser?.uid!],
+      onUpdate: (result) => {
+        this.userDocument = <UserDocument>result.data();
+        this.userHasProfile = result.exists;
+        if (this.userHasProfile) {
+          this.router.navigate(["postfeed"]);
+        }
+      }
+    });
+  }
+
+  loggedIn() {
+    return this.auth.isSignedIn();
+  }
+
   onLoginClick() {
     this.loginSheet.open(AuthenticatorComponent);
   }
-  getUserProfile(){
-    this.firestore.listenToDocument(
-      {
-        name:"Getting Document",
-        path:["Users",this.auth.getAuth().currentUser.uid],
-        onUpdate:(result)=>{
-          this.userDocument=<userDocument>result.data();
-          this.userHasProfile=result.exists;
-          if(this.userHasProfile){
-            this.router.navigate(["postfeed"]);
-          }
-        }
-      }
-    );
 
+  onLogoutClick() {
+    this.auth.signOut();
+    this.router.navigate([""]);
   }
+
 }
 
-export interface userDocument{
-  publicName:string;
-  description:string;
+export interface UserDocument {
+  publicName: string;
+  description: string;
 }

@@ -12,7 +12,7 @@
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
-    min-height: 800px;
+    /* min-height: 800px; */
 }
 #bg-op{
      opacity: 0.5;
@@ -21,14 +21,15 @@
     display:flex;
     color: black;
     justify-content: center;
-        align-items: center;
+    align-items: center;
 }
 #landing-left-content{
     text-align: right;
-    padding: 16px 16px 16px 48px;  
+    padding: 35px 16px 16px 48px;  
+    margin-top: 50px;
 }
 #landing-left-content h1{
-font-size: 170px;
+font-size: 100px;
 font-weight: bolder;
 color: #1A1A40;
 font-family: 'Indie Flower', cursive;

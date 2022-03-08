@@ -1,5 +1,5 @@
 <div class="auth ">
-    <mat-card class="auth_content mat-headline" >
+    <mat-card class="auth_content mat-headline">
         <mat-card-header>
             <mat-card-title class="mat-title">{{getStateText()}}</mat-card-title>
         </mat-card-header>
@@ -12,15 +12,13 @@
             <input #registerEmail placeholder="Email">
             <input #registerPassword type="password" placeholder="Password">
             <input #registerConfirmPassword type="password" placeholder="Confirm Password">
-            <button 
-            (click)="onRegisterClick(
+            <button (click)="onRegisterClick(
                 registerEmail,
                 registerPassword,
-                registerConfirmPassword)" 
-            mat-flat-button color="warn">Create</button>
+                registerConfirmPassword)" mat-flat-button color="warn">Create</button>
         </div>
         <div *ngIf="isForgetPasswordState()">
-            <input  #resetEmail placeholder="Email">
+            <input #resetEmail placeholder="Email">
             <button (click)="onResetClick(resetEmail)" mat-flat-button color="warn">Reset</button>
         </div>
         <mat-card-actions align="end" class="mat-headline">

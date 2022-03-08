@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-import {MatDialogRef} from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-authenticator',
@@ -12,7 +12,7 @@ export class AuthenticatorComponent implements OnInit {
   firebasetsAuth: FirebaseTSAuth;
 
   state = AuthenticatorCompState.LOGIN;
-  constructor(private dialogRef:MatDialogRef<AuthenticatorComponent>) {
+  constructor(private dialogRef: MatDialogRef<AuthenticatorComponent>) {
     this.firebasetsAuth = new FirebaseTSAuth();
   }
 
@@ -22,29 +22,29 @@ export class AuthenticatorComponent implements OnInit {
 
   onLogin(
     loginEmail: HTMLInputElement,
-    loginPassword: HTMLInputElement){
-      let email = loginEmail.value;
-      let password = loginPassword.value;
-      if( this.isNotEmpty(email) && this.isNotEmpty(password)){
-        this.firebasetsAuth.signInWith({
-          email: email,
-          password: password,
-          onComplete:(uc)=>{
-            this.dialogRef.close();
-          },
-          onFail:(err)=>{
-            alert(err);
-          }
-        });
-      }
+    loginPassword: HTMLInputElement) {
+    let email = loginEmail.value;
+    let password = loginPassword.value;
+    if (this.isNotEmpty(email) && this.isNotEmpty(password)) {
+      this.firebasetsAuth.signInWith({
+        email: email,
+        password: password,
+        onComplete: (uc) => {
+          this.dialogRef.close();
+        },
+        onFail: (err) => {
+          alert(err);
+        }
+      });
+    }
   }
 
-  onResetClick(resetEmail: HTMLInputElement){
+  onResetClick(resetEmail: HTMLInputElement) {
     let email = resetEmail.value;
-    if(this.isNotEmpty(email)){
+    if (this.isNotEmpty(email)) {
       this.firebasetsAuth.sendPasswordResetEmail({
-        email:email,
-        onComplete:(err)=>{
+        email: email,
+        onComplete: (err) => {
           this.dialogRef.close();
         }
       });
@@ -62,11 +62,12 @@ export class AuthenticatorComponent implements OnInit {
       this.isNotEmpty(email) &&
       this.isNotEmpty(password) &&
       this.isNotEmpty(confirmPassword) &&
-      this.isAMacth(password, confirmPassword)) {
+      this.isAMatch(password, confirmPassword)) {
       this.firebasetsAuth.createAccountWith({
         email: email,
         password: password,
         onComplete: (uc) => {
+          alert("Account is Created")
           this.dialogRef.close();
         },
         onFail: (err) => {
@@ -81,7 +82,7 @@ export class AuthenticatorComponent implements OnInit {
     return text != null && text.length > 0;
   }
 
-  isAMacth(text: string, comparedWith: string) {
+  isAMatch(text: string, comparedWith: string) {
     return text == comparedWith;
   }
   onForgetPasswordClick() {
