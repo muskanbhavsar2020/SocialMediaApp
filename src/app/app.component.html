@@ -5,13 +5,17 @@
         </div>
         <div class="nav-bar-right">
             <button *ngIf="!loggedIn()" class="nav-bar-items" mat-raised-button color="primary"
-                (click)="onLoginClick()">Log In</button>
-            <div *ngIf="loggedIn() && userHasProfile" class="nav-bar-items"><i>Hello, {{getUsername()}}</i>
-            </div>
-            <button *ngIf="loggedIn()" mat-raised-button class="nav-bar-items" color="primary"
-                (click)="onLogoutClick()">Log Out</button>
+                (click)="onLoginClick()"><mat-icon>login</mat-icon>Log In</button>
+            <!-- <div *ngIf="loggedIn() " class="nav-bar-items"><i>Hello,</i>
+            </div> -->
+            <button *ngIf="loggedIn() && userHasProfile" mat-raised-button [matMenuTriggerFor]="userMenu" mat-raised-button class="nav-bar-items" color="primary"
+                ><mat-icon>account_circle</mat-icon>{{getUsername()}} <mat-icon>expand_more</mat-icon></button>
         </div>
-    </div>
+    </div>&nbsp;
 </div>
 <router-outlet></router-outlet>
+<mat-menu #userMenu="matMenu">
+    <button mat-menu-item (click)="onLogoutClick()">Logout</button>
+</mat-menu>
 <app-profile [show]="loggedIn() && !userHasProfile"></app-profile>
+

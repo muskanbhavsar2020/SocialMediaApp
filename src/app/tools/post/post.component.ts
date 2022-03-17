@@ -16,9 +16,13 @@ export class PostComponent implements OnInit {
   @Input() postData: PostData;
 
   constructor(private dialog: MatDialog) { }
-
+  heartType:string="heart_empty"
   ngOnInit(): void {
     this.getCreatorInfo();
+    
+  }
+  ontoggleHeart(){
+    this.heartType=this.heartType=="heart" ? "heart_empty":"heart"
   }
   onReplyClick(){
     this.dialog.open(ReplyComponent,{data:this.postData.postId});
