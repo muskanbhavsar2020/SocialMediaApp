@@ -21,8 +21,9 @@ export class PostComponent implements OnInit {
     this.getCreatorInfo();
     
   }
+  toggle=true;
   ontoggleHeart(){
-    this.heartType=this.heartType=="heart" ? "heart_empty":"heart"
+    this.toggle = !this.toggle;
   }
   onReplyClick(){
     this.dialog.open(ReplyComponent,{data:this.postData.postId});
