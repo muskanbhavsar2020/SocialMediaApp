@@ -7,8 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/FirebaseTSApp';
-
 import { environment } from 'src/environments/environment';
+
 import { MaterialModule } from './material/material.module';
 import { AuthenticatorComponent } from './tools/authenticator/authenticator.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
