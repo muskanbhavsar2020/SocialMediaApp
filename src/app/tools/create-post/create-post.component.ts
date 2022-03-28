@@ -66,8 +66,7 @@ export class CreatePostComponent implements OnInit {
       data: {
         comment: comment,
         creatorId: this.auth.getAuth().currentUser.uid,
-        timestamp: FirebaseTSApp.getFirestoreTimestamp(),
-        likes:[],
+        timestamp: FirebaseTSApp.getFirestoreTimestamp()
       },
       onComplete: (docId) => {
         alert("Post is Uploaded");

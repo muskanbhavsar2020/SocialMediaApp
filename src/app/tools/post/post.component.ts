@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit ,Inject} from '@angular/core';
 import { PostData } from 'src/app/pages/post-feed/post-feed.component';
 import { FirebaseTSFirestore} from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from '../reply/reply.component';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -16,15 +17,12 @@ export class PostComponent implements OnInit {
   @Input() postData: PostData;
 
   constructor(private dialog: MatDialog) { }
-  heartType:string="heart_empty"
   ngOnInit(): void {
     this.getCreatorInfo();
     
   }
-  toggle=true;
-  ontoggleHeart(){
-    this.toggle = !this.toggle;
-  }
+ 
+    
   onReplyClick(){
     this.dialog.open(ReplyComponent,{data:this.postData.postId});
   }
@@ -40,4 +38,19 @@ export class PostComponent implements OnInit {
       }
     );
   }
+  toggle=true;
+  numberOfLikes:number = 0;
+  numberOfDislikes:number = 0; 
+  likeButtonAction(){
+      this.numberOfLikes++;
+      this.toggle = !this.toggle;
+  }
+  dislikButtoneAction(){
+    if(this.numberOfLikes > 1)
+    {
+    this.numberOfLikes--;
+    this.numberOfDislikes++;
+    }
+  }
 }
+

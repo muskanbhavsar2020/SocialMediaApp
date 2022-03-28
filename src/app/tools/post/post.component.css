@@ -1,8 +1,15 @@
 .action-item{
     margin-left: .5em;
     cursor: pointer;
+    color: rgb(224, 131, 131);;
 }
 
 .getDown{
     margin-top: 10px;
+}
+.red{
+    color:rgb(224, 131, 131);
+}
+.black{
+    color:red
 }
