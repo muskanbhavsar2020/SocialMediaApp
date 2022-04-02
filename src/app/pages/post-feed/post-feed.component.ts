@@ -49,4 +49,5 @@ export interface PostData {
   creatorId: string;
   imageUrl?: string;
   postId:string;
+  likeId:string;
 }

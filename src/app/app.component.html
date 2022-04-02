@@ -15,7 +15,10 @@
 </div>
 <router-outlet></router-outlet>
 <mat-menu #userMenu="matMenu">
+    <button mat-menu-item (click)="onHomeClick()">Home</button>
+    <button mat-menu-item (click)="onProfileClick()">Profile</button>
     <button mat-menu-item (click)="onLogoutClick()">Logout</button>
+   
 </mat-menu>
 <app-profile [show]="loggedIn() && !userHasProfile"></app-profile>
 

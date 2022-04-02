@@ -17,6 +17,7 @@
         <mat-icon class="action-item" (click)="likeButtonAction()"   color="warn">thumb_up</mat-icon>&nbsp;<span>{{numberOfLikes}}</span>
         <mat-icon class="action-item" (click) ="dislikButtoneAction()"  color="warn">thumb_down</mat-icon>&nbsp;<span>{{numberOfDislikes}}</span>
         <mat-icon class="action-item" > save </mat-icon>
+        <p>{{ti.toDate() | date:'medium' }}</p>
     </mat-card-actions>
 
     

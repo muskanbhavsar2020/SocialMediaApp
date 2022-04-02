@@ -78,7 +78,13 @@ export class AppComponent {
     this.auth.signOut();
     this.router.navigate([""]);
   }
-
+  onProfileClick(){
+  this.router.navigate(["profilepage"]);
+  }
+  onHomeClick()
+  {
+    this.router.navigate(["postfeed"]);
+  }
 }
 
 export interface UserDocument {
