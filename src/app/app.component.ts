@@ -16,7 +16,7 @@ export class AppComponent {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  private static userDocument: UserDocument;
+  public static userDocument: UserDocument={publicName:"",description:"",userId:""};
 
   constructor(private loginSheet: MatDialog, private router: Router) {
     this.auth.listenToSignInStateChanges(

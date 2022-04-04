@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/FirebaseTSApp';
 import { environment } from 'src/environments/environment';
-
+import { initializeApp } from 'firebase/app';
 import { MaterialModule } from './material/material.module';
 import { AuthenticatorComponent } from './tools/authenticator/authenticator.component';
 import { EmailVerificationComponent } from './pages/email-verification/email-verification.component';
@@ -44,5 +44,6 @@ import { ProfilePageComponent } from './tools/profile-page/profile-page.componen
 export class AppModule {
   constructor() {
     FirebaseTSApp.init(environment.firebaseConfig);
+    initializeApp(environment.firebaseConfig);
   }
 }

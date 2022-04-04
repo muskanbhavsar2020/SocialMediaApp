@@ -7,9 +7,18 @@
 .getDown{
     margin-top: 10px;
 }
-.red{
+/* .red{
     color:rgb(224, 131, 131);
 }
 .black{
     color:red
+} */
+#no_of_count {
+    font-family: cursive;
+    font-size: small;
+    
+}
+.colorsbg{
+    color: rgb(178,34,34);
+    
 }

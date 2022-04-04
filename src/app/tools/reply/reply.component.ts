@@ -32,12 +32,14 @@ export class ReplyComponent implements OnInit {
             postCommentDoc => {
               if(postCommentDoc.type=="added"){
                 this.comments.unshift(<Comment>postCommentDoc.doc.data());
+
               }
           });
         }
       }
     );
   }
+  count1:number=0;
   onSendClick(commentInput:HTMLInputElement){
     if(!(commentInput.value.length>0))return;
     this.firestore.create(
@@ -51,6 +53,7 @@ export class ReplyComponent implements OnInit {
         },
         onComplete:(docId)=>{
           commentInput.value="";
+          this.count1=this.count1++;
         }
       }
     );
