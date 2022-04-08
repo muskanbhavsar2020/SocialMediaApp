@@ -1,34 +1,22 @@
-<form>
-    <ul class="form-style-1">
-        <<li><label>User Name <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="User Name" /></li>
-
-        <li><input type="file" id="myFile" name="filename">Upload Profile Photo</li>
-        <li>
-            <label>Bio <span class="required">*</span></label>
-            <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
-        </li>
-        <label for="birthday">Date Of Birth </label>
-        <input type="date" id="birthday" name="birthday">
-
-
-        <!-- <li><label>Date Of Birth <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="DOB" /></li> -->
-        <!-- <li><label>Profession <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="Profession" /></li> -->
-        <!-- <li>
-            <label>Social Links <span class="required">*</span></label>
-            <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
-        </li> -->
-
-
-        <li>
-            <label>Contact <span class="required">*</span></label>
-            <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
-        </li>
-        <!-- <li>
-            <label>Other Details <span class="required">*</span></label>
-            <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
-        </li> -->
-        <li>
-            <button  mat-flat-button color="warn">Edit</button>
-        </li>
-    </ul>
+<div class="form_s">
+    <form>
+        <fieldset>
+            <legend><span class="number">1</span>User Info</legend>
+            <input type="text" name="field1" placeholder="Your Name *">
+            <input type="email" name="field2" placeholder="Your Email *">
+            <input type="number" name="field5" placeholder="Your Contact *">
+            <input type="date" id="birthday" name="birthday">
+        </fieldset>
+        <fieldset>
+            <legend><span class="number">2</span> Additional Info</legend>
+            <textarea name="field3" placeholder="Bio"></textarea>
+        </fieldset>
+        <fieldset>
+            <legend><span class="number">3</span> Upload Photo</legend>
+            <input type="file" id="myFile" name="field4">Upload Profile Photo
+        </fieldset>
+        <br><br>
+        <button mat-flat-button color="primary">Submit</button>&nbsp;&nbsp;
+        <button mat-flat-button color="warn">Edit</button>
     </form>
+</div>
