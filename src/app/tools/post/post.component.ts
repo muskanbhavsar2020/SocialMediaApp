@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from '../reply/reply.component';
 import { DatePipe } from '@angular/common';
 import { AppComponent } from 'src/app/app.component';
-
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 
 import { doc, getDoc, getFirestore, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
@@ -16,7 +15,7 @@ import { doc, getDoc, getFirestore, onSnapshot, setDoc, updateDoc } from 'fireba
 })
 export class PostComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
-
+  replycount: number;
   creatorName: string;
   creatorDescription: string;
   ti: firebase.default.firestore.Timestamp;
@@ -26,6 +25,7 @@ export class PostComponent implements OnInit {
 
   fav: string = "favorite_border";
   db = getFirestore();
+
 
   @Input() postData: PostData;
   constructor(private dialog: MatDialog) { }

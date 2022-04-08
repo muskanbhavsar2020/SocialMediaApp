@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 import { FirebaseTSFirestore, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
@@ -11,6 +11,7 @@ import { AppComponent } from 'src/app/app.component';
 export class ReplyComponent implements OnInit {
   firestore=new FirebaseTSFirestore();
   comments:Comment[]=[];
+  replycount!: number;
   constructor(@Inject(MAT_DIALOG_DATA) private postId:string) { }
 
   ngOnInit(): void {

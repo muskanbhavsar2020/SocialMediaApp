@@ -1,3 +1,9 @@
+.bg{
+    background-image: url("src\assets\chat_background.jpg");
+    height: 100%;
+    width: 100% ;
+}
+
 .action-item{
     margin-left: .5em;
     cursor: pointer;
